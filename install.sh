@@ -53,3 +53,5 @@ if ! grep -qe "bashrc" "$HOME/.bash_profile"; then
   echo "# Loading bashrc config:" >> $HOME/.bash_profile
   echo "source ~/.bashrc" >> $HOME/.bash_profile
 fi
+
+source ~/.bashrc
