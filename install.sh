@@ -5,12 +5,6 @@ msg() {
   printf '%b\n' "$1" >&2
 }
 
-debug() {
-  if [ "$debug_mode" -eq '1' ] && [ "$ret" -gt '1' ]; then
-    msg "An error occurred in function \"${FUNCNAME[$i+1]}\" on line ${BASH_LINENO[$i+1]}, we're sorry for that."
-  fi
-}
-
 success() {
     if [ "$ret" -eq '0' ]; then
     msg "\e[32m[✔]\e[0m ${1}${2}"
@@ -31,7 +25,6 @@ do_backup() {
     done
     ret="$?"
     success "$1"
-    debug
   fi
 }
 
@@ -45,9 +38,9 @@ do_backup "Your old stuff has a suffix now and looks like .xx.`date +%Y%m%d%S`" 
         "$HOME/.tmux.conf" \
         "$HOME/.bash_prompt_line"
 
-ln -sf "${pwd}/.mybashrc" "$HOME/.mybashrc"
-ln -sf "${pwd}/.tmux.conf" "$HOME/.tmux.conf"
-ln -sf "${pwd}/.bash_prompt_line" "$HOME/.bash_prompt_line"
+ln -sf "`pwd`/.mybashrc" "$HOME/.mybashrc"
+ln -sf "`pwd`/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf "`pwd`/.bash_prompt_line" "$HOME/.bash_prompt_line"
 
 # Add mybashrc to bashrc if it is not there:
 if ! grep -qe "mybashrc" "$HOME/.bashrc"; then

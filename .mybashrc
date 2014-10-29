@@ -3,22 +3,16 @@
 ####
 
 # Load rvm, the ruby version manager
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Load nvm, the node version manager
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+#[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
 # load my ssh_aliases:
-[[ -s $HOME/.ssh_aliases ]] && . $HOME/.ssh_aliases
-
-# load tmux conf:
-[[ -s $HOME/.tmux.conf ]] && . $HOME/.tmux.conf
-
-# load tmuxinator conf:
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+[[ -s $HOME/.ssh_aliases ]] && source $HOME/.ssh_aliases
 
 # load prompt line:
-[[ -s $HOME/.bash_prompt_line ]] && . $HOME/.bash_prompt_line
+[[ -s $HOME/.bash_prompt_line ]] && source $HOME/.bash_prompt_line
 
 ####
 ##  Aliases:
