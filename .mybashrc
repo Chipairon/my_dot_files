@@ -1,0 +1,111 @@
+####
+##  Load sources:
+####
+
+# Load rvm, the ruby version manager
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# Load nvm, the node version manager
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+
+# load my ssh_aliases:
+[[ -s $HOME/.ssh_aliases ]] && . $HOME/.ssh_aliases
+
+# load tmux conf:
+[[ -s $HOME/.tmux.conf ]] && . $HOME/.tmux.conf
+
+# load tmuxinator conf:
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# load prompt line:
+[[ -s $HOME/.bash_prompt_line ]] && . $HOME/.bash_prompt_line
+
+####
+##  Aliases:
+####
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# rails aliases to binstubs:
+alias brake='bin/rake'
+alias brails='bin/rails'
+alias brespec='bin/rspec'
+
+
+alias redis='~/projects/redis/src/redis-server'
+
+####
+##  Exports:
+####
+
+# this is to make colorschemes work in vim (console mode)
+export TERM="screen-256color"
+
+### Add mongoDB executables to the path
+export PATH="/opt/mongodb/2.4.9/bin:$PATH"
+
+### Add elixir to path
+export PATH="$HOME/projects/elixir/bin:$PATH"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Add rvm binaries to path
+export PATH="$HOME/.rvm/bin:$PATH"
+
+export EDITOR='vim -f'
+
+
+####
+##  Shell configuration:
+####
+
+# Don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# Setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
+# Check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+#set vi style notation for input instead of emacs
+set -o vi
+
+# Make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+
