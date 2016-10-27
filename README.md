@@ -20,6 +20,7 @@ Last time I checked:
 Install pyenv:
 `curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash`
 
+```shell
 pyenv install 2.7.11
 pyenv install 3.4.4
 
@@ -40,7 +41,12 @@ pyenv which python  # Note the path
 # packages that provide cli programs that are used in Neovim.
 pip install flake8
 ln -s `pyenv which flake8` ~/bin/flake8  # Assumes that $HOME/bin is in $PATH
-Now that you've noted the interpreter paths, add the following to your init.vim file:
+```
 
+Now that you've noted the interpreter paths, add the following to your
+`init.vim` file:
+
+```vim
 let g:python_host_prog = '/full/path/to/neovim2/bin/python'
 let g:python3_host_prog = '/full/path/to/neovim3/bin/python'
+```
