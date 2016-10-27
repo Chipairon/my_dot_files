@@ -27,6 +27,9 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -43,10 +46,17 @@ alias brails='bin/rails'
 alias brespec='bin/rspec'
 
 
-alias redis='~/projects/redis/src/redis-server'
+alias start_redis='/usr/local/Cellar/redis/2.8.17/bin/redis-server'
 alias start_mongo='mongod --config /usr/local/etc/mongod.conf'
 alias start_mysql='mysqld_safe &'
-alias start_postgres='postgres -D /usr/local/var/postgres -r /usr/local/var/postgres/server.log &'
+alias start_postgres='postgres -D /usr/local/var/postgres-9.5 -r /usr/local/var/postgres-9.5/server.log &'
+alias start_postgres_9.3='postgres -D /usr/local/var/postgres -r /usr/local/var/postgres/server.log &'
+alias start_elasticsearch='/usr/local/Cellar/elasticsearch/2.4.0/bin/elasticsearch'
+alias start_elasticsearch_old='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
+alias cd_wowza='cd /Applications/Wowza\ Streaming\ Engine\ 4.3.0/WowzaStreamingEngine/'
+alias start_wowzamanager='sudo launchctl load -w /Library/LaunchDaemons/com.wowza.WowzaStreamingEngineManager.plist'
+# manager: admin / chipadmin
+alias stop_wowzamanager='sudo launchctl unload -w /Library/LaunchDaemons/com.wowza.WowzaStreamingEngineManager.plist'
 
 ####
 ##  Exports:
